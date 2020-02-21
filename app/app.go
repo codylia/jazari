@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 type App struct {
@@ -16,6 +18,9 @@ type App struct {
 func Start() {
 	// create the app
 	l := log.New(os.Stdout, "LOGGER: ", log.Ldate|log.Ltime|log.Lshortfile)
+	if err := godotenv.Load(); err != nil {
+		l.Fatalln(err)
+	}
 	cache, err := newTemplateCache(os.Getenv("TEMPLATES_PATH"))
 	if err != nil {
 		l.Fatalln(err)
