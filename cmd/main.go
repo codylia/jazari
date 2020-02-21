@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/oussama4/jazri/app"
+)
 
 func main() {
-	fmt.Println("vim-go")
+	app.Start()
 }
