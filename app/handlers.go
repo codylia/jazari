@@ -7,3 +7,7 @@ import (
 func (a *App) HandleHome(w http.ResponseWriter, r *http.Request) {
 	a.html(w, "home.page", M{})
 }
+
+func (a *App)  HandleStructure(w http.ResponseWriter, r *http.Request) {
+	a.html(w, "structure.page", M{})
+}
