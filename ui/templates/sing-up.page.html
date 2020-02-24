@@ -1,0 +1,91 @@
+{{ template "base" . }}
+
+{{ define "title" }} 
+    مركز ابن الجزري
+{{ end }}
+
+{{ define "body" }}
+
+<div class="uk-container">
+    <form action="/application-form" method="POST" novalidate>
+            
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-fullname">fName</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-fullname" name="fname" type="text">
+                    </div>
+                </div>
+
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-bdate">date</label>
+                    <input type="date" id="form-stacked-bdate" name="bdate">
+                </div>
+
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-bplace">bplace</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-bplace" name="bplace" type="text">
+                    </div>
+                </div>
+
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-edujob">educandjob</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-edujob" name="edujob" type="text">
+                    </div>
+                </div>
+
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-address">address</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-address" name="address" type="text">
+                    </div>
+                </div>
+
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-phone">phone</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-phone" name="phone" type="text">
+                    </div>
+                </div>
+
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-cin">cin</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-cin" name="cin" type="text">
+                    </div>
+                </div>
+
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-email">email</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-email" name="email" type="text">
+                    </div>
+                </div>
+            
+                <div class="uk-margin">
+                    <div class="uk-form-label">tajweed</div>
+                    <div class="uk-form-controls">
+                        <label><input class="uk-radio" type="radio" name="taj1"> Option 01</label><br>
+                        <label><input class="uk-radio" type="radio" name="taj2"> Option 02</label><br>
+                        <label><input class="uk-radio" type="radio" name="tag3"> Option 03</label><br>
+                        <label><input class="uk-radio" type="radio" name="tag4"> Option 04</label>
+                    </div>
+                </div>
+    
+            <div class="uk-margin">
+                <textarea class="uk-textarea" rows="3" cols="30" placeholder="" name="hifd"></textarea>
+            </div>
+
+            <div class="uk-margin">
+                <textarea class="uk-textarea" rows="3" cols="30" placeholder="" name="reason"></textarea>
+            </div>
+
+            <div class="uk-margin">
+                <input type="submit" class="uk-button uk-button-primary" value=""> 
+            </div>
+    
+    </form>
+</div>
+
+{{ end }}
