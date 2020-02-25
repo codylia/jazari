@@ -16,5 +16,5 @@ func (a *App) HandleStructure(w http.ResponseWriter, r *http.Request) {
 }
 
 func (a *App) HandleApplicationForm(w http.ResponseWriter, r *http.Request) {
-	a.html(w, "sign-up.page.html", M{})
+	a.html(w, "appform.page", M{})
 }
