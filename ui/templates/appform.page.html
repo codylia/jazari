@@ -34,55 +34,98 @@
             <div class="uk-margin">
                 <label class="uk-form-label" for="form-fullname">الإسم الكامل</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="form-fullname" name="fullName" type="text">
+		    <input class="uk-input" id="form-fullname" name="fullName" type="text" value="{{ .af.FullName }}">
                 </div>
+		{{ with .errors.Errors.full_name }}
+                    {{ range . }}
+                        <p class="uk-text-danger"> {{ . }} </p>
+                    {{ end }}
+                {{ end }}
             </div>
 
             <div class="uk-margin">
                 <label class="uk-form-label" for="form-bdate">تاريخ الميلاد</label>
                 <input type="date" id="form-stacked-bdate" name="birthDate">
+		{{ with .errors.Errors.birth_date }}
+                    {{ range . }}
+                        <p class="uk-text-danger"> {{ . }} </p>
+                    {{ end }}
+                {{ end }}
             </div>
 
             <div class="uk-margin">
                 <label class="uk-form-label" for="form-bplace">مكان الميلاد</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="form-bplace" name="birthPlace" type="text">
+		    <input class="uk-input" id="form-bplace" name="birthPlace" type="text" value="{{ .af.BirthPlace }}">
                 </div>
+		{{ with .errors.Errors.birth_place }}
+                    {{ range . }}
+                        <p class="uk-text-danger"> {{ . }} </p>
+                    {{ end }}
+                {{ end }}
             </div>
 
             <div class="uk-margin">
                 <label class="uk-form-label" for="form-edujob">المهنة و المستوى الدراسي</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="form-edujob" name="educAndJob" type="text">
+		    <input class="uk-input" id="form-edujob" name="educAndJob" type="text" value="{{ .af.EducAndJob }}">
                 </div>
+		{{ with .errors.Errors.educ_and_job }}
+                    {{ range . }}
+                        <p class="uk-text-danger"> {{ . }} </p>
+                    {{ end }}
+                {{ end }}
             </div>
 
             <div class="uk-margin">
                 <label class="uk-form-label" for="form-address">العنوان</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="form-address" name="address" type="text">
+		    <input class="uk-input" id="form-address" name="address" type="text" value="{{ .af.Address }}">
                 </div>
+		{{ with .errors.Errors.address }}
+                    {{ range . }}
+                        <p class="uk-text-danger"> {{ . }} </p>
+                    {{ end }}
+                {{ end }}
             </div>
 
             <div class="uk-margin">
                 <label class="uk-form-label" for="form-phone">الهاتف </label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="form-phone" name="phone" type="number" placeholder="لا يجب أن تتعدى 13 رقم">
+		    <input class="uk-input" id="form-phone" name="phone" type="number" value="{{ .af.Phone }}" 
+		    placeholder="لا يجب أن تتعدى 13 رقم">
                 </div>
+		{{ with .errors.Errors.phone }}
+                    {{ range . }}
+                        <p class="uk-text-danger"> {{ . }} </p>
+                    {{ end }}
+                {{ end }}
             </div>
 
             <div class="uk-margin">
                 <label class="uk-form-label" for="form-cin">رقم البطاقة الوطنية</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="form-cin" name="cin" type="text" placeholder="D123456">
+		    <input class="uk-input" id="form-cin" name="cin" type="text" value="{{ .af.Cin }}" 
+		    placeholder="D123456">
                 </div>
+		{{ with .errors.Errors.cin }}
+                    {{ range . }}
+                        <p class="uk-text-danger"> {{ . }} </p>
+                    {{ end }}
+                {{ end }}
             </div>
 
             <div class="uk-margin">
                 <label class="uk-form-label" for="form-email">البريد الإلكتروني</label>
                 <div class="uk-form-controls">
-                    <input class="uk-input" id="form-email" name="email" type="text" placeholder="user@mail.com">
+                    <input class="uk-input" id="form-email" name="email" type="text" value="{{ .af.Email }}" 
+		    placeholder="user@mail.com">
                 </div>
+		{{ with .errors.Errors.email }}
+                    {{ range . }}
+                        <p class="uk-text-danger"> {{ . }} </p>
+                    {{ end }}
+                {{ end }}
             </div>
         
             <div class="uk-margin">
@@ -93,15 +136,32 @@
                     <label><input class="uk-radio" type="radio" name="tajweedLevel" > مستحسن</label><br>
                     <label><input class="uk-radio" type="radio" name="tajweedLevel" > ضعيف جدا</label>
                 </div>
+		{{ with .errors.Errors.tajweed_level }}
+                    {{ range . }}
+                        <p class="uk-text-danger"> {{ . }} </p>
+                    {{ end }}
+                {{ end }}
             </div>
            
         <div class="uk-margin">
-            
-            <textarea class="uk-textarea" rows="3" cols="30" placeholder="" name="hifdAmount"></textarea>
+	    <div class="uk-form-label"> كم تحفظ من القرآن؟ </div> 
+	    <textarea class="uk-textarea" rows="3" cols="30" placeholder="" name="hifdAmount" 
+		value="{{ .af.HifdAmount }}"></textarea>
+		{{ with .errors.Errors.hifd_amount }}
+                    {{ range . }}
+                        <p class="uk-text-danger"> {{ . }} </p>
+                    {{ end }}
+                {{ end }}
         </div>
         <div class="uk-form-label"> لماذا قررت التسجيل في المركز؟</div>
         <div class="uk-margin">
-            <textarea class="uk-textarea" rows="3" cols="30" placeholder="" name="reason"></textarea>
+            <textarea class="uk-textarea" rows="3" cols="30" placeholder="" name="reason" value="{{ .af.Reason }}">
+	    </textarea>
+		{{ with .errors.Errors.reason }}
+                    {{ range . }}
+                        <p class="uk-text-danger"> {{ . }} </p>
+                    {{ end }}
+                {{ end }}
         </div>
 
         
