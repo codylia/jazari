@@ -7,6 +7,27 @@
 {{ define "body" }}
 
 <div class="uk-container uk-container-small">
+    <div class="uk-animation-toggle" tabindex="0">
+        <div class="uk-card uk-card-default uk-card-body uk-animation-scale-up uk-transform-origin-top-center">
+          <div class="uk-text-center">
+            <h6  class="uk-margin-small uk-badge">الوتائق المطلوبة للتسجيل</h6>
+            <ul class="uk-list">
+                <li>ملئ إستمارة التسجيل</li>
+                <li>نسخة البطاقة الوطنية</li>
+                <li></li>
+            </ul>
+    
+            <h6 class="uk-margin-small uk-badge">مصارف التسجيل</h6>
+            <ul  class="uk-list">
+                <li>50 درهم للتسجيل</li>
+                <li>100 درهم شهريا بالنسبة للموضفين</li>
+                <li>50 درهم شهريا بالنسبة للطلاب</li>
+                <li>ادا كان في إستطاعتك دفع  تمن سنة كاملة أفضل</li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    
     <form action="/application-form" method="POST" novalidate>
             
                 <div class="uk-margin">
@@ -45,7 +66,7 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="form-phone">الهاتف </label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="form-phone" name="phone" type="text">
+                        <input class="uk-input" id="form-phone" name="phone" type="number">
                     </div>
                 </div>
 
@@ -66,10 +87,10 @@
                 <div class="uk-margin">
                     <div class="uk-form-label">ما مدى إلمامك بقواعد التجويد؟</div>
                     <div class="uk-form-controls">
-                        <label><input class="uk-radio" type="radio" name="tajweedLevelL"> ضعيف</label><br>
-                        <label><input class="uk-radio" type="radio" name="tajweedLevelM"> متوسط</label><br>
-                        <label><input class="uk-radio" type="radio" name="tajweedLevelNB"> مستحسن</label><br>
-                        <label><input class="uk-radio" type="radio" name="tajweedLevelVL"> ضعيف جدا</label>
+                        <label><input class="uk-radio" type="radio" name="tajweedLevel" > ضعيف</label><br>
+                        <label><input class="uk-radio" type="radio" name="tajweedLevel" > متوسط</label><br>
+                        <label><input class="uk-radio" type="radio" name="tajweedLevel" > مستحسن</label><br>
+                        <label><input class="uk-radio" type="radio" name="tajweedLevel" > ضعيف جدا</label>
                     </div>
                 </div>
                
