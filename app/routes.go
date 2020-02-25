@@ -18,6 +18,6 @@ func (a *App) routes() *chi.Mux {
 	r.Get("/programs", a.HandlePrograms)
 	r.Get("/structure", a.HandleStructure)
 	r.Get("/application-form", a.HandleApplicationForm)
-
+	r.Get("/application-form/print", a.HandleFormToPrint)
 	return r
 }

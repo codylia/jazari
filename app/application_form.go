@@ -84,6 +84,6 @@ func (af *applicationForm) IsValid(errors *v.Errors) {
 			Message : "المرجو ملئ تاريخ الازدياد",
 		},
 	)
-
 	errors.Append(errs)
 }
+

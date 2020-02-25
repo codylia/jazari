@@ -18,3 +18,7 @@ func (a *App) HandleStructure(w http.ResponseWriter, r *http.Request) {
 func (a *App) HandleApplicationForm(w http.ResponseWriter, r *http.Request) {
 	a.html(w, "appform.page", M{})
 }
+
+func (a *App) HandleFormToPrint(w http.ResponseWriter, r *http.Request) {
+	a.html(w, "formToPrint.page", M{})
+}
