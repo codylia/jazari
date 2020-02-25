@@ -22,6 +22,10 @@ func (a *App) HandleApplicationForm(w http.ResponseWriter, r *http.Request) {
 	a.html(w, "appform.page", M{})
 }
 
+func (a *App) HandleFormToPrint(w http.ResponseWriter, r *http.Request) {
+	a.html(w, "formToPrint.page", M{})
+}
+
 func (a *App) HandleAppFormPost(w http.ResponseWriter, r *http.Request) {
 	bd, _ := time.Parse(time.RFC3339, r.FormValue("birthDate"))
 	//if err != nil {
