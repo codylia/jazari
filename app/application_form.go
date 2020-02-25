@@ -24,7 +24,7 @@ type applicationForm struct {
 
 func (af *applicationForm) IsValid(errors *v.Errors) {
 
-	v.Validate(
+	errs := v.Validate(
 		&vs.StringLengthInRange{
 			Name:    "fullName",
 			Field:   strings.TrimSpace(af.fullName),
@@ -59,4 +59,6 @@ func (af *applicationForm) IsValid(errors *v.Errors) {
 			Message: "المرجو إعادة كتابة رقم الهاتف بشكل صحيح",
 		},
 	)
+
+	errors.Append(errs)
 }
