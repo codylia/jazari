@@ -9,18 +9,18 @@ import (
 )
 
 type applicationForm struct {
-	fullName,
-	birthPlace,
-	educAndJob,
+	FullName,
+	BirthPlace,
+	EducAndJob,
 	Address,
-	phone,
+	Phone,
 	Cin,
-	email,
-	tajweedLevel,
-	hifdAmount,
-	reason,
-	imgName string
-	birthDate time.Time
+	Email,
+	TajweedLevel,
+	HifdAmount,
+	Reason,
+	ImgName string
+	BirthDate time.Time
 }
 
 func (af *applicationForm) IsValid(errors *v.Errors) {
@@ -28,59 +28,59 @@ func (af *applicationForm) IsValid(errors *v.Errors) {
 	errs := v.Validate(
 		&vs.StringLengthInRange{
 			Name:    "fullName",
-			Field:   strings.TrimSpace(af.fullName),
+			Field:   strings.TrimSpace(af.FullName),
 			Min:     6,
 			Max:     50,
 			Message: "المرجو إعادة كتابة الإسم",
 		},
 		&vs.StringLengthInRange{
 			Name:    "birthPlace",
-			Field:   strings.TrimSpace(af.birthPlace),
+			Field:   strings.TrimSpace(af.BirthPlace),
 			Min:     3,
 			Max:     30,
 			Message: "المرجو إعادة كتابة مكان لازدياد",
 		},
 		&vs.StringLengthInRange{
 			Name:    "educAndJob",
-			Field:   strings.TrimSpace(af.educAndJob),
+			Field:   strings.TrimSpace(af.EducAndJob),
 			Min:     4,
 			Max:     30,
 			Message: "المرجو إعادة كتابة المهنة/المستوى الدراسي",
 		},
 		&vs.RegexMatch{
 			Name:    "phone",
-			Field:   strings.TrimSpace(af.phone),
+			Field:   strings.TrimSpace(af.Phone),
 			Expr:    "^(\\+)?([0-9]){6,13}$",
 			Message: "المرجو إعادة كتابة رقم الهاتف بشكل صحيح",
 		},
 		&vs.EmailIsPresent{
 			Name:    "email",
-			Field:   af.phone,
+			Field:   af.Email,
 			Message: "المرجو إعادة كتابة رقم البريد الإلكتروني بشكل صحيح",
 		},
 		&vs.StringInclusion{
 			Name:    "tajweedLevel",
-			Field:   af.tajweedLevel,
+			Field:   af.TajweedLevel,
 			List:    []string{"مستحسن", "متوسط", "ضعيف", "ضعيف جدا"},
 			Message: "المرجو إختيار مستوى التجويد",
 		},
 		&vs.StringLengthInRange{
 			Name:    "hifdAmount",
-			Field:   strings.TrimSpace(af.hifdAmount),
+			Field:   strings.TrimSpace(af.HifdAmount),
 			Min:     5,
 			Max:     300,
 			Message: "المرجو ملئ خانة الحفظ",
 		},
 		&vs.StringLengthInRange{
 			Name:    "reason",
-			Field:   strings.TrimSpace(af.reason),
+			Field:   strings.TrimSpace(af.Reason),
 			Min:     10,
 			Max:     300,
 			Message: "المرجو ملئ خانة القرار",
 		},
 		&vs.TimeIsPresent{
 			Name:    "birthDate",
-			Field:   af.birthDate,
+			Field:   af.BirthDate,
 			Message: "المرجو ملئ تاريخ الازدياد",
 		},
 		&vs.RegexMatch{
