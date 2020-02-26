@@ -2,6 +2,7 @@ package app
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/oussama4/validate/v4"
 )
@@ -54,7 +55,9 @@ func (a *App) HandleAppFormPost(w http.ResponseWriter, r *http.Request) {
 		data := M{"af": af, "errors": errors}
 		a.html(w, "appform.page", data)
 	} else {
-		data := M{"af": af}
+		now := time.Now()
+		af.TajweedLevel = tajweedLevel(af.TajweedLevel)
+		data := M{"af": af, "now": now.Format("2006-01-02")}
 		a.html(w, "formToPrint.page", data)
 	}
 }

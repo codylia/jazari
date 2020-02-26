@@ -60,3 +60,17 @@ func (a *App) serverError(w http.ResponseWriter, err error) {
 	a.logger.Println(err)
 	http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 }
+
+func tajweedLevel(v string) string {
+	switch v {
+	case "1":
+		return "ضعيف"
+	case "2":
+		return "متوسط"
+	case "3":
+		return "مستحسن"
+	case "4":
+		return "ضعيف جدا"
+	}
+	return ""
+}
