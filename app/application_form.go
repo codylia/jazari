@@ -2,7 +2,6 @@ package app
 
 import (
 	"strings"
-	"time"
 
 	v "github.com/oussama4/validate/v4"
 	vs "github.com/oussama4/validate/v4/validators"
@@ -19,8 +18,8 @@ type applicationForm struct {
 	TajweedLevel,
 	HifdAmount,
 	Reason,
-	ImgName string
-	BirthDate time.Time
+	ImgName,
+	BirthDate string
 }
 
 func (af *applicationForm) IsValid(errors *v.Errors) {
@@ -61,7 +60,7 @@ func (af *applicationForm) IsValid(errors *v.Errors) {
 		&vs.StringInclusion{
 			Name:    "tajweedLevel",
 			Field:   af.TajweedLevel,
-			List:    []string{"مستحسن", "متوسط", "ضعيف", "ضعيف جدا"},
+			List:    []string{"1", "2", "3", "4"},
 			Message: "المرجو إختيار مستوى التجويد",
 		},
 		&vs.StringLengthInRange{
@@ -74,11 +73,11 @@ func (af *applicationForm) IsValid(errors *v.Errors) {
 		&vs.StringLengthInRange{
 			Name:    "reason",
 			Field:   strings.TrimSpace(af.Reason),
-			Min:     10,
+			Min:     6,
 			Max:     300,
 			Message: "المرجو ملئ خانة القرار",
 		},
-		&vs.TimeIsPresent{
+		&vs.StringIsPresent{
 			Name:    "birthDate",
 			Field:   af.BirthDate,
 			Message: "المرجو ملئ تاريخ الازدياد",

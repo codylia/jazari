@@ -29,7 +29,7 @@
     </div>
     
     <div class="uk-margin">
-        <form action="/application-form" method="POST" novalidate>
+        <form action="/application-form" enctype="multipart/form-data" method="POST" novalidate>
             
             <div class="uk-margin">
                 <label class="uk-form-label" for="form-fullname">الإسم الكامل</label>
@@ -45,7 +45,7 @@
 
             <div class="uk-margin">
                 <label class="uk-form-label" for="form-bdate">تاريخ الميلاد</label>
-                <input type="date" id="form-stacked-bdate" name="birthDate">
+		<input type="date" id="form-stacked-bdate" name="birthDate" value="{{ .af.BirthDate }}">
 		{{ with .errors.Errors.birth_date }}
                     {{ range . }}
                         <p class="uk-text-danger"> {{ . }} </p>
@@ -92,7 +92,7 @@
             <div class="uk-margin">
                 <label class="uk-form-label" for="form-phone">الهاتف </label>
                 <div class="uk-form-controls">
-		    <input class="uk-input" id="form-phone" name="phone" type="number" value="{{ .af.Phone }}" 
+		    <input class="uk-input" id="form-phone" name="phone" type="text" value="{{ .af.Phone }}" 
 		    placeholder="لا يجب أن تتعدى 13 رقم">
                 </div>
 		{{ with .errors.Errors.phone }}
@@ -131,10 +131,18 @@
             <div class="uk-margin">
                 <div class="uk-form-label">ما مدى إلمامك بقواعد التجويد؟</div>
                 <div class="uk-form-controls">
-                    <label><input class="uk-radio" type="radio" name="tajweedLevel" > ضعيف</label><br>
-                    <label><input class="uk-radio" type="radio" name="tajweedLevel" > متوسط</label><br>
-                    <label><input class="uk-radio" type="radio" name="tajweedLevel" > مستحسن</label><br>
-                    <label><input class="uk-radio" type="radio" name="tajweedLevel" > ضعيف جدا</label>
+		    <label><input class="uk-radio" type="radio" value="1" 
+								{{ if eq .af.TajweedLevel "1" }} checked {{ end}} 
+								name="tajweedLevel" > ضعيف</label><br>
+                    <label><input class="uk-radio" type="radio" value="2"
+								{{ if eq .af.TajweedLevel "2" }} checked {{ end}} 
+			name="tajweedLevel" > متوسط</label><br>
+                    <label><input class="uk-radio" type="radio" value="3" 
+								{{ if eq .af.TajweedLevel "3" }} checked {{ end}} 
+			name="tajweedLevel" > مستحسن</label><br>
+                    <label><input class="uk-radio" type="radio" value="4" 
+								{{ if eq .af.TajweedLevel "4" }} checked {{ end}} 
+			name="tajweedLevel" > ضعيف جدا</label>
                 </div>
 		{{ with .errors.Errors.tajweed_level }}
                     {{ range . }}
@@ -145,8 +153,9 @@
            
         <div class="uk-margin">
 	    <div class="uk-form-label"> كم تحفظ من القرآن؟ </div> 
-	    <textarea class="uk-textarea" rows="3" cols="30" placeholder="" name="hifdAmount" 
-		value="{{ .af.HifdAmount }}"></textarea>
+	    <textarea class="uk-textarea" rows="3" cols="30" placeholder="" name="hifdAmount" > 
+		{{ .af.HifdAmount }} 
+	    </textarea>
 		{{ with .errors.Errors.hifd_amount }}
                     {{ range . }}
                         <p class="uk-text-danger"> {{ . }} </p>
@@ -155,7 +164,8 @@
         </div>
         <div class="uk-form-label"> لماذا قررت التسجيل في المركز؟</div>
         <div class="uk-margin">
-            <textarea class="uk-textarea" rows="3" cols="30" placeholder="" name="reason" value="{{ .af.Reason }}">
+            <textarea class="uk-textarea" rows="3" cols="30" placeholder="" name="reason">
+		{{ .af.Reason }}
 	    </textarea>
 		{{ with .errors.Errors.reason }}
                     {{ range . }}
@@ -171,7 +181,11 @@
                 <input type="file" name="imgName" accept="image/png, image/jpeg">
                 <input class="uk-input uk-form-width-medium" type="text" placeholder="أضف الصورة" disabled>
             </div>
-            
+		{{ with .errors.Errors.img_name }}
+                    {{ range . }}
+                        <p class="uk-text-danger"> {{ . }} </p>
+                    {{ end }}
+                {{ end }}
         </div>
 
         <div class="uk-margin">

@@ -2,7 +2,6 @@ package app
 
 import (
 	"net/http"
-	"time"
 
 	"github.com/oussama4/validate/v4"
 )
@@ -27,11 +26,12 @@ func (a *App) HandleFormToPrint(w http.ResponseWriter, r *http.Request) {
 }
 
 func (a *App) HandleAppFormPost(w http.ResponseWriter, r *http.Request) {
-	bd, _ := time.Parse(time.RFC3339, r.FormValue("birthDate"))
-	//if err != nil {
-	//	a.serverError(w, err)
-	//	return
-	//}
+	fn := ""
+	f, fh, err := r.FormFile("imgName")
+	if err == nil {
+		fn = fh.Filename
+		defer f.Close()
+	}
 	af := applicationForm{
 		FullName:     r.FormValue("fullName"),
 		BirthPlace:   r.FormValue("birthPlace"),
@@ -43,15 +43,18 @@ func (a *App) HandleAppFormPost(w http.ResponseWriter, r *http.Request) {
 		TajweedLevel: r.FormValue("tajweedLevel"),
 		HifdAmount:   r.FormValue("hifdAmount"),
 		Reason:       r.FormValue("reason"),
-		ImgName:      r.FormValue("imgName"),
-		BirthDate:    bd,
+		ImgName:      fn,
+		BirthDate:    r.FormValue("birthDate"),
 	}
-
 	errors := validate.Validate(&af)
+	if err == http.ErrMissingFile {
+		errors.Add("img_name", "المرجو اضافة الصورة")
+	}
 	if errors.HasAny() {
 		data := M{"af": af, "errors": errors}
 		a.html(w, "appform.page", data)
 	} else {
-		http.Redirect(w, r, "/application-form/print", http.StatusOK)
+		data := M{"af": af}
+		a.html(w, "formToPrint.page", data)
 	}
 }

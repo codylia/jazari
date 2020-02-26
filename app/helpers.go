@@ -2,8 +2,8 @@ package app
 
 import (
 	"bytes"
-	"os"
 	"net/http"
+	"os"
 )
 
 type staticFileServer struct {
