@@ -83,7 +83,19 @@ func (af *applicationForm) IsValid(errors *v.Errors) {
 			Field:   af.BirthDate,
 			Message: "المرجو ملئ تاريخ الازدياد",
 		},
+		&vs.RegexMatch{
+			Name:    "cin",
+			Field:   strings.TrimSpace(af.Cin),
+			Expr:    "^([a-zA-z]){1}([0-9]){6}|([a-zA-Z]){2}([0-9]){5}&",
+			Message: "المرجو إعادة كتابة بطاقة التعريف بشكل صحيح",
+		},
+		&vs.StringLengthInRange{
+			Name:    "address",
+			Field:   strings.TrimSpace(af.Address),
+			Min:     10,
+			Max:     100,
+			Message: "المرجو ملئ خانة العنوان",
+		},
 	)
 	errors.Append(errs)
 }
-
