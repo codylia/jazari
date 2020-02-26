@@ -132,17 +132,17 @@
                 <div class="uk-form-label">ما مدى إلمامك بقواعد التجويد؟</div>
                 <div class="uk-form-controls">
 		    <label><input class="uk-radio" type="radio" value="1" 
-								{{ if eq .af.TajweedLevel "1" }} checked {{ end}} 
-								name="tajweedLevel" > ضعيف</label><br>
+				  {{ if .af.TajweedLevel eq "1" }} checked {{ end }} 
+				  name="tajweedLevel" >  ضعيف </label><br>
                     <label><input class="uk-radio" type="radio" value="2"
-								{{ if eq .af.TajweedLevel "2" }} checked {{ end}} 
-			name="tajweedLevel" > متوسط</label><br>
+			    	  {{ if .af.TajweedLevel eq "2" }} checked {{ end }} 
+				  name="tajweedLevel" > متوسط</label><br>
                     <label><input class="uk-radio" type="radio" value="3" 
-								{{ if eq .af.TajweedLevel "3" }} checked {{ end}} 
-			name="tajweedLevel" > مستحسن</label><br>
+				  {{ if .af.TajweedLevel eq "3" }} checked {{ end }} 
+				  name="tajweedLevel" > مستحسن</label><br>
                     <label><input class="uk-radio" type="radio" value="4" 
-								{{ if eq .af.TajweedLevel "4" }} checked {{ end}} 
-			name="tajweedLevel" > ضعيف جدا</label>
+				  {{ if .af.TajweedLevel eq "4" }} checked {{ end }} 
+				  name="tajweedLevel" > ضعيف جدا</label>
                 </div>
 		{{ with .errors.Errors.tajweed_level }}
                     {{ range . }}
