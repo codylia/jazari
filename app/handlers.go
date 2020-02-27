@@ -57,7 +57,8 @@ func (a *App) HandleAppFormPost(w http.ResponseWriter, r *http.Request) {
 	} else {
 		now := time.Now()
 		af.TajweedLevel = tajweedLevel(af.TajweedLevel)
-		data := M{"af": af, "now": now.Format("2006-01-02")}
+		img := imgToBase64(f, fh)
+		data := M{"af": af, "now": now.Format("2006-01-02"), "img": img}
 		a.html(w, "formToPrint.page", data)
 	}
 }

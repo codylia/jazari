@@ -1,7 +1,10 @@
 package app
 
 import (
+	"bufio"
 	"bytes"
+	"encoding/base64"
+	"mime/multipart"
 	"net/http"
 	"os"
 )
@@ -73,4 +76,12 @@ func tajweedLevel(v string) string {
 		return "ضعيف جدا"
 	}
 	return ""
+}
+
+func imgToBase64(f multipart.File, fh *multipart.FileHeader) string {
+	buf := make([]byte, fh.Size)
+	imgReader := bufio.NewReader(f)
+	imgReader.Read(buf)
+	imgBase64 := base64.StdEncoding.EncodeToString(buf)
+	return imgBase64
 }
