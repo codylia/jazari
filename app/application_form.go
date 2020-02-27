@@ -49,7 +49,7 @@ func (af *applicationForm) IsValid(errors *v.Errors) {
 		&vs.RegexMatch{
 			Name:    "phone",
 			Field:   strings.TrimSpace(af.Phone),
-			Expr:    "^(\\+)?([0-9]){6,13}$",
+			Expr:    "^(\\+|0)?([0-9]){6,13}$",
 			Message: "المرجو إعادة كتابة رقم الهاتف بشكل صحيح",
 		},
 		&vs.EmailIsPresent{
@@ -85,7 +85,7 @@ func (af *applicationForm) IsValid(errors *v.Errors) {
 		&vs.RegexMatch{
 			Name:    "cin",
 			Field:   strings.TrimSpace(af.Cin),
-			Expr:    "^([a-zA-z]){1}([0-9]){6}|([a-zA-Z]){2}([0-9]){5}&",
+			Expr:    "^([a-zA-z]){1}([0-9]){6}|([a-zA-Z]){2}([0-9]){5}$",
 			Message: "المرجو إعادة كتابة بطاقة التعريف بشكل صحيح",
 		},
 		&vs.StringLengthInRange{
