@@ -67,13 +67,13 @@ func (a *App) serverError(w http.ResponseWriter, err error) {
 func tajweedLevel(v string) string {
 	switch v {
 	case "1":
-		return "ضعيف"
-	case "2":
-		return "متوسط"
-	case "3":
-		return "مستحسن"
-	case "4":
 		return "ضعيف جدا"
+	case "2":
+		return "ضعيف"
+	case "3":
+		return "متوسط"
+	case "4":
+		return "مستحسن"
 	}
 	return ""
 }
