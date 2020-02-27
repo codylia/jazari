@@ -19,7 +19,7 @@ func Start() {
 	// create the app
 	l := log.New(os.Stdout, "LOGGER: ", log.Ldate|log.Ltime|log.Lshortfile)
 	if err := godotenv.Load(); err != nil {
-		l.Fatalln(err)
+		l.Println(err)
 	}
 	cache, err := newTemplateCache(os.Getenv("TEMPLATES_PATH"))
 	if err != nil {
