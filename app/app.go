@@ -33,7 +33,7 @@ func Start() {
 
 	// start the http server
 	srv := &http.Server{
-		Addr:    os.Getenv("ADDRESS"),
+		Addr:    ":" + os.Getenv("PORT"),
 		Handler: app.routes(),
 	}
 
