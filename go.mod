@@ -1,5 +1,7 @@
 module github.com/oussama4/jazri
 
+// +heroku install ./cmd/...
+
 go 1.13
 
 require (
