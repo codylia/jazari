@@ -37,7 +37,7 @@ func Start() {
 		Handler: app.routes(),
 	}
 
-	app.logger.Printf("starting server on %s", os.Getenv("ADDRESS"))
+	app.logger.Printf("starting server on %s", ":"+os.Getenv("PORT"))
 	err = srv.ListenAndServe()
 	if err != nil {
 		app.logger.Fatalln(err)
