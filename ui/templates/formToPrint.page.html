@@ -22,6 +22,12 @@
             border-radius : 10px;
             background-color: transparent;
         }
+        @media only screen and (min-width: 992px) {
+            .nav-items_square{
+                position: relative;
+                left: 15rem;
+            }
+        }
         .nav-items_img {
             height: 10rem;
             width : 10rem; 
@@ -44,14 +50,15 @@
             display: grid;
             grid-template-columns: 70% 30% ;
         }
-	.sora {
-	    height: 100% !important;
-	}
-        /* div p { 
-            font-family: "Amiri";
-            font-weight: bold;
-            margin: auto;
-        } */
+        .sora {
+            height: 100% !important;
+
+        }
+
+    .grd-container2{
+        display: grid;
+        grid-template-columns: 33% 34% 33%;
+    }
         @media print
         {
         .noprint {display:none;}
@@ -61,23 +68,23 @@
 </head>
 
     <body class="uk-container uk-container-center uk-margin-top">
+            <nav class=" grd-container2 uk-flex uk-flex-center uk-margin-top uk-width-1-1 uk-margin ">
+                <img class=" nav-items_img uk-flex-left uk-margin-right " src="/static/img/logo-2.png"  alt="مركز ابن الجزري">
+                <div class="  uk-margin-left  nav-items"><h2 >مركز ابن الجزري  للدراسات والابحاث</h2></div>
+                <div class=" nav-items_square uk-flex-right ">
+                    <img class="sora" src="data:image/png;base64,{{ .img }}" alt="الصورة"> 
+                </div>
+            </nav>   
 
-        <nav class="uk-flex uk-flex-center uk-margin-top uk-width-1-1 uk-margin ">
-            <img class=" nav-items_img uk-flex-left uk-margin-right " src="/static/img/logo-2.png"  alt="مركز ابن الجزري">
-            <div class="  uk-margin-left  nav-items"><h2 >مركز ابن الجزري  للدراسات والابحاث</h2></div>
-            <div class=" nav-items_square uk-flex-right uk-margin-left">
-		        <img class="sora" src="data:image/png;base64,{{ .img }}" alt="الصورة"   width="" height=""> 
-		   </div>
-        </nav>
+        <br>
 
-            <br>
-            <div class="first uk-text-right">
-                <p><strong><i> استمارة التسجيل في مركز ابن الجزري  للدراسات والابحاث </i></strong></p>
-            </div>
+        <div class="first uk-text-right">
+            <p class=" uk-text-right"><strong><i> استمارة التسجيل في مركز ابن الجزري  للدراسات والابحاث </i></strong></p>
+        </div>
 
-            <div class="grd-container uk-margin-top ">
-
-                <div class="uk-text-right uk-margin-right">
+        <div class=" grd-container  uk-margin-top ">
+               
+            <div class="uk-text-right uk-margin-right">
 		    <p> {{ .af.FullName }} </p>
                 </div>
 
