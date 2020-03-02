@@ -12,14 +12,16 @@
           <div class="uk-text-center">
             <h6  class="uk-margin-small uk-badge">الوتائق المطلوبة للتسجيل</h6>
             <ul class="uk-list">
-                <li> ملئ إستمارة التسجيل و إرسلها عبر البريد الإلكتروني</li>
+                <li> ملئ إستمارة التسجيل و إرسالها عبر البريد الإلكتروني</li>
                 <li>
-                    <span class="uk-label uk-label-success">ibnjazaricentre@gmail.com</span>
+                    <h4 class="uk-text-bolder uk-text-lowercase"> ibnjazaricentre@gmail.com </h4>
                 </li>
                 <li>نسخة البطاقة الوطنية</li>
                 <li></li>
             </ul>
     
+	    <h1 class="uk-heading-divider"> </h1>
+
             <h6 class="uk-margin-small uk-badge">مصارف التسجيل</h6>
             <ul  class="uk-list">
                 <li>50 درهم للتسجيل</li>
@@ -70,11 +72,23 @@
             </div>
 
             <div class="uk-margin">
-                <label class="uk-form-label" for="form-edujob">المهنة و المستوى الدراسي</label>
+                <label class="uk-form-label" for="form-job">المهنة</label>
                 <div class="uk-form-controls">
-		    <input class="uk-input" id="form-edujob" name="educAndJob" type="text" value="{{ .af.EducAndJob }}">
+		    <input class="uk-input" id="form-job" name="job" type="text" value="{{ .af.Job }}">
                 </div>
-		{{ with .errors.Errors.educ_and_job }}
+		{{ with .errors.Errors.job }}
+                    {{ range . }}
+                        <p class="uk-text-danger"> {{ . }} </p>
+                    {{ end }}
+                {{ end }}
+            </div>
+
+            <div class="uk-margin">
+		<label class="uk-form-label" for="form-edu"> المستوى الدراسي</label>
+                <div class="uk-form-controls">
+		    <input class="uk-input" id="form-edu" name="educ" type="text" value="{{ .af.Educ }}">
+                </div>
+		{{ with .errors.Errors.educ }}
                     {{ range . }}
                         <p class="uk-text-danger"> {{ . }} </p>
                     {{ end }}

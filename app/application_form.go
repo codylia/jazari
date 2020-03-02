@@ -10,7 +10,8 @@ import (
 type applicationForm struct {
 	FullName,
 	BirthPlace,
-	EducAndJob,
+	Job,
+	Educ,
 	Address,
 	Phone,
 	Cin,
@@ -40,11 +41,18 @@ func (af *applicationForm) IsValid(errors *v.Errors) {
 			Message: "المرجو إعادة كتابة مكان لازدياد",
 		},
 		&vs.StringLengthInRange{
-			Name:    "educAndJob",
-			Field:   strings.TrimSpace(af.EducAndJob),
+			Name:    "job",
+			Field:   strings.TrimSpace(af.Job),
 			Min:     4,
 			Max:     30,
-			Message: "المرجو إعادة كتابة المهنة/المستوى الدراسي",
+			Message: "المرجو إعادة كتابة المهنة",
+		},
+		&vs.StringLengthInRange{
+			Name:    "educ",
+			Field:   strings.TrimSpace(af.Educ),
+			Min:     4,
+			Max:     30,
+			Message: "المرجو إعادة كتابة المستوى الدراسي",
 		},
 		&vs.RegexMatch{
 			Name:    "phone",

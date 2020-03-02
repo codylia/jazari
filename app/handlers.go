@@ -36,7 +36,8 @@ func (a *App) HandleAppFormPost(w http.ResponseWriter, r *http.Request) {
 	af := applicationForm{
 		FullName:     r.FormValue("fullName"),
 		BirthPlace:   r.FormValue("birthPlace"),
-		EducAndJob:   r.FormValue("educAndJob"),
+		Job:          r.FormValue("job"),
+		Educ:         r.FormValue("educ"),
 		Address:      r.FormValue("address"),
 		Phone:        r.FormValue("phone"),
 		Cin:          r.FormValue("cin"),
