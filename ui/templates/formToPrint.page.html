@@ -22,12 +22,7 @@
             border-radius : 10px;
             background-color: transparent;
         }
-        @media only screen and (min-width: 992px) {
-            .nav-items_square{
-                position: relative;
-                left: 15rem;
-            }
-        }
+
         .nav-items_img {
             height: 10rem;
             width : 10rem; 
@@ -55,15 +50,25 @@
 
         }
 
-    .grd-container2{
-        display: grid;
-        grid-template-columns: 33% 34% 33%;
-    }
+        .grd-container2{
+            display: grid;
+            grid-template-columns: 33% 34% 33%;
+        }
+        .nav-items_square{
+            margin-left: 4rem;
+        }
         @media print
         {
-        .noprint {display:none;}
+            .noprint {display:none;}
         }
- 
+        @media only screen and (min-width: 992px) {
+            .nav-items_square{
+                position: relative;
+                left: 12rem;
+            }
+        }
+
+    
     </style>
 </head>
 
@@ -109,13 +114,21 @@
                 </div>
 
                 <div class="uk-text-right uk-margin-right">
-		    <p> {{ .af.EducAndJob }} </p>
+		    <p> {{ .af.Educ }} </p>
                 </div>
 
                 <div class=" uk-text-right">
-                    <p>:المهنة و المستوى الدراسي</p>
+                    <p>: المستوى الدراسي</p>
                 </div>
 
+                <div class="uk-text-right uk-margin-right">
+                    {{ .af.Job }}
+                </div>
+        
+                <div class=" uk-text-right">
+                    <p>: المهنة</p>
+                </div>
+        
                 <div class="uk-text-right uk-margin-right">
 		    <p> {{ .af.Address }} </p>
                 </div>
