@@ -1,8 +1,6 @@
 package app
 
 import (
-	"os"
-
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 )
@@ -13,7 +11,7 @@ func (a *App) routes() *chi.Mux {
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
 
-	r.Get("/static/*", Static(os.Getenv("STATIC_PATH")))
+	r.Get("/static/*", Static(a.cfg.StaticPath))
 	r.Get("/", a.HandleHome)
 	r.Get("/programs", a.HandlePrograms)
 	r.Get("/structure", a.HandleStructure)
