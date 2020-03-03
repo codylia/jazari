@@ -18,6 +18,18 @@ func (a *App) HandleStructure(w http.ResponseWriter, r *http.Request) {
 	a.html(w, "structure.page", M{})
 }
 
+//program
+func (a *App) HandleProgramme(w http.ResponseWriter, r *http.Request) {
+	a.html(w, "programme.page", M{})
+}
+
+func (a *App) HandleCourses(w http.ResponseWriter, r *http.Request) {
+	a.html(w, "courses.page", M{})
+}
+func (a *App) HandleReading(w http.ResponseWriter, r *http.Request) {
+	a.html(w, "reading.page", M{})
+}
+
 func (a *App) HandleApplicationForm(w http.ResponseWriter, r *http.Request) {
 	a.html(w, "appform.page", M{})
 }
