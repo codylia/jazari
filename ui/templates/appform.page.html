@@ -193,10 +193,11 @@
         </div>
 
         
-    
+        <div class="uk-form-label">يجب ان لا تتعدى الصورة1mgb </div>
         <div class="uk-margin" uk-margin>
             <div uk-form-custom="target: true">
                 <input type="file" name="imgName" accept="image/png, image/jpeg">
+                
                 <input class="uk-input uk-form-width-medium" type="text" placeholder="أضف الصورة" disabled>
             </div>
 		{{ with .errors.Errors.img_name }}
