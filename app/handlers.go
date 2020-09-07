@@ -14,6 +14,15 @@ func (a *App) HandleHome(w http.ResponseWriter, r *http.Request) {
 func (a *App) HandlePrograms(w http.ResponseWriter, r *http.Request) {
 	a.html(w, "programs.page", M{})
 }
+
+func (a *App) HandlePrograms2(w http.ResponseWriter, r *http.Request) {
+	a.html(w, "programs2.page", M{})
+}
+
+func (a *App) HandleAnnouncement(w http.ResponseWriter, r *http.Request) {
+	a.html(w, "announcement.page", M{})
+}
+
 func (a *App) HandleStructure(w http.ResponseWriter, r *http.Request) {
 	a.html(w, "structure.page", M{})
 }

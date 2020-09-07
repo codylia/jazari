@@ -1,6 +1,7 @@
 {{ define "base" }}
 <!DOCTYPE html>
 <html dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,20 +13,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.3/dist/flatpickr.min.css">
     <link href="https://fonts.googleapis.com/css?family=Amiri&display=swap" rel="stylesheet">
     <style>
-        *{
+        * {
             font-family: "Amiri";
-            
+
         }
-        .d-img{
-            height: 264px !important; width: 451px !important;
+
+        .d-img {
+            height: 264px !important;
+            width: 451px !important;
         }
     </style>
     <title> {{ template "title" }} </title>
 </head>
+
 <body>
     <nav class="uk-navbar-container uk-margin" uk-navbar="mode:click">
 
-        <div class="uk-navbar-right  uk-hidden@m uk-hidden@l" >
+        <div class="uk-navbar-right  uk-hidden@m uk-hidden@l">
             <a href="#offcanvas-usage " style="width: 3rem; height: 3rem;" uk-toggle>
                 <img src="/static/img/menu.png" alt="">
             </a>
@@ -33,38 +37,54 @@
 
         <div class="uk-navbar-right bar uk-visible@s">
             <ul class="uk-navbar-nav">
-                <li> <a href="#"> <p class="uk-h4 uk-text-normal"> عن المركز </p> </a>
-                <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li> <a href="/structure"> الهيكل التنفيذي </a> </li>
-                    </ul>
-                </div>
-                </li>
-                <li> <a href="#"> <p class="uk-h4 uk-text-normal"> البرامج </p> </a>
+                <li> <a href="#">
+                        <p class="uk-h4 uk-text-normal"> عن المركز </p>
+                    </a>
                     <div class="uk-navbar-dropdown">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li> <a href="/programme"> المنهاج التكويني  </a> </li>
-                            <li> <a href="/programs"> برنامج المرحلة التمهيدية </a> </li>
+                            <li> <a href="/structure"> الهيكل التنفيذي </a> </li>
                         </ul>
                     </div>
                 </li>
-                <li> <a href="/courses"> <p class="uk-h4 uk-text-normal"> الدورات </p> </a></li>
-                <li> <a href="/reading"> <p class="uk-h4 uk-text-normal"> المقرأة </p> </a></li>
-                <li> <a href="application-form"> <p class="uk-h4 uk-text-normal"> طلب التسجيل </p> </a></li>
-                
+                <li> <a href="#">
+                        <p class="uk-h4 uk-text-normal"> البرامج </p>
+                    </a>
+                    <div class="uk-navbar-dropdown" style="width: 237px;">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li> <a href="/programme"> المنهاج التكويني </a> </li>
+                            <li> <a href="/programs"> برنامج المرحلة التمهيدية <span>(2019/2020)</span></a> </li>
+                            <li> <a href="/programs2">برنامج المرحلة التمهيدية <span>(2020/2020)</span></a> </li>
+                        </ul>
+                    </div>
+                </li>
+                <li> <a href="/courses">
+                        <p class="uk-h4 uk-text-normal"> الدورات </p>
+                    </a></li>
+                <li> <a href="/announcement">
+                        <p class="uk-h4 uk-text-normal"> الإعلانات </p>
+                    </a></li>
+                <li> <a href="/reading">
+                        <p class="uk-h4 uk-text-normal"> المقرأة </p>
+                    </a></li>
+                <li> <a href="application-form">
+                        <p class="uk-h4 uk-text-normal"> طلب التسجيل </p>
+                    </a></li>
+
             </ul>
         </div>
 
         <div class="uk-navbar-left">
-            <a class="uk-navbar-item uk-logo" href="/"><img src="/static/img/logo-2.png" alt="" height="50" width="50"></a>
+            <a class="uk-navbar-item uk-logo" href="/"><img src="/static/img/logo-2.png" alt="" height="50"
+                    width="50"></a>
         </div>
 
-        
+
 
     </nav>
 
     {{ template "body" . }}
-    <button class="uk-button uk-button-primary	uk-button-small " type="button" uk-toggle="target: #offcanvas-reveal" style="position: fixed;
+    <button class="uk-button uk-button-primary	uk-button-small " type="button" uk-toggle="target: #offcanvas-reveal"
+        style="position: fixed;
      
      left: -37px;
     top: 232px;
@@ -84,18 +104,20 @@
             </p>
         </div>
         <div>
-            
+
             <div id="offcanvas-reveal" uk-offcanvas="mode: reveal; overlay: true">
                 <div class="uk-offcanvas-bar uk-text-center">
-            
+
                     <button class="uk-offcanvas-close " type="button" uk-close></button>
-            
+
                     <h3>مرحبا بكم </h3>
-            
+
                     <p> البريد الإلكتروني<br><span>ibnjazaricentre@gmail.com</span></p>
-                    <p>صفحتنا على الفايسبوك<br><a href="https://www.facebook.com/%D9%85%D8%B1%D9%83%D8%B2-%D8%A7%D8%A8%D9%86-%D8%A7%D9%84%D8%AC%D8%B2%D8%B1%D9%8A-%D9%84%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D8%A7%D8%A8%D8%AD%D8%A7%D8%AB-485648608861785/">مركز ابن الجزري للدراسات والابحاث</a></p>
+                    <p>صفحتنا على الفايسبوك<br><a
+                            href="https://www.facebook.com/%D9%85%D8%B1%D9%83%D8%B2-%D8%A7%D8%A8%D9%86-%D8%A7%D9%84%D8%AC%D8%B2%D8%B1%D9%8A-%D9%84%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D8%A7%D8%A8%D8%AD%D8%A7%D8%AB-485648608861785/">مركز
+                            ابن الجزري للدراسات والابحاث</a></p>
                     <p>الهاتف<br><span>06.40.15.77.30/06.75.45.81.85</span></p>
-            
+
                 </div>
             </div>
         </div>
@@ -104,14 +126,30 @@
     <div id="offcanvas-usage" uk-offcanvas>
         <button class="uk-offcanvas-close" type="button" uk-close>close</button>
         <div class="uk-offcanvas-bar">
-                <ul class="uk-nav uk-nav-default">
-                    <li> <a href="/structure"><p class="uk-h4 uk-text-normal"> الهيكل التنفيذي</p> </a> </li>
-                    <li> <a href="/programme"><p class="uk-h4 uk-text-normal"> المنهاج التكويني </p>   </a> </li>
-                    <li> <a href="/programs"><p class="uk-h4 uk-text-normal">برنامج المرحلة التمهيدية </p> </a> </li>
-                    <li> <a href="/courses"> <p class="uk-h4 uk-text-normal"> الدورات </p> </a></li>
-                <li> <a href="/reading"> <p class="uk-h4 uk-text-normal"> المقرأة </p> </a></li>
-                    <li> <a href="application-form"> <p class="uk-h4 uk-text-normal"> طلب التسجيل </p> </a></li>
-                </ul>
+            <ul class="uk-nav uk-nav-default">
+                <li> <a href="/structure">
+                        <p class="uk-h4 uk-text-normal"> الهيكل التنفيذي</p>
+                    </a> </li>
+                <li> <a href="/programme">
+                        <p class="uk-h4 uk-text-normal"> المنهاج التكويني </p>
+                    </a> </li>
+                <li> <a href="/programs">
+                        <p> برنامج المرحلة التمهيدية <span>(2019/2020)</span></p>
+                    </a> </li>
+                <li> <a href="/programs2">برنامج المرحلة التمهيدية <span>(2020/2020)</span></a> </li>
+                <li> <a href="/courses">
+                        <p class="uk-h4 uk-text-normal"> الدورات </p>
+                    </a></li>
+                <li> <a href="/announcement">
+                        <p class="uk-h4 uk-text-normal"> الإعلانات </p>
+                    </a></li>
+                <li> <a href="/reading">
+                        <p class="uk-h4 uk-text-normal"> المقرأة </p>
+                    </a></li>
+                <li> <a href="application-form">
+                        <p class="uk-h4 uk-text-normal"> طلب التسجيل </p>
+                    </a></li>
+            </ul>
         </div>
     </div>
 
@@ -121,5 +159,6 @@
 
     {{ template "scripts" . }}
 </body>
+
 </html>
 {{ end }}

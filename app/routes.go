@@ -14,6 +14,8 @@ func (a *App) routes() *chi.Mux {
 	r.Get("/static/*", Static(a.cfg.StaticPath))
 	r.Get("/", a.HandleHome)
 	r.Get("/programs", a.HandlePrograms)
+	r.Get("/programs2", a.HandlePrograms2)
+	r.Get("/announcement", a.HandleAnnouncement)
 	r.Get("/programme", a.HandleProgramme)
 	r.Get("/courses", a.HandleCourses)
 	r.Get("/reading", a.HandleReading)
